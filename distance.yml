@@ -1,0 +1,5 @@
+nats :
+  host : localhost
+  port : 4222
+  input : "tracking.*"
+  output : "distance"

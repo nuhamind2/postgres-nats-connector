@@ -1,0 +1,11 @@
+postgresql:
+  host : localhost
+  user : tester
+  database : testing
+  password : tester
+  port : 5432
+  channels : ['test','group_a','city_center']
+nats :
+  host : localhost
+  port : 4222
+  subjectPrefix : 'pgnotify'

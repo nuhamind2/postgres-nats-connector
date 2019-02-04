@@ -1,0 +1,19 @@
+postgresql:
+  host : localhost
+  user : tester
+  database : testing
+  password : tester
+  port : 5432
+nats :
+  host : localhost
+  port : 4222
+  subject : "tenant1.clientPublish.*.gps"
+mapping:
+  sql : >
+    insert into tracking.tenant1 (assetid,location,time)
+    values($1,ST_Point($2,$3),to_timestamp($4::float/1000))
+  values:
+    - 'clientId'
+    - 'payload.lon'
+    - 'payload.lat'
+    - 'payload.time'
